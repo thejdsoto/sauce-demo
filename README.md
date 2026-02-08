@@ -60,6 +60,14 @@ After a test run, open the report using:
 ```bash
 npx playwright show-report
 ```
+### Test Execution Summary
+
+| Suite | Tests | Status |
+|-------|-------|--------|
+| Authentication | 4 | ✅ Passed |
+| Cart | 3 | ✅ Passed |
+| Checkout | 2 | ✅ Passed |
+| End-to-End | 1 | ✅ Passed |
 
 ### How to Run the tests
 ##### Prerequisites
@@ -82,5 +90,9 @@ npx playwright test
 ```
 
 ### CI/CD Readiness
-This repository CI-ready and can be integrated into pipelines such as GitHub Actions.
-Retries, reporters, and headless execution are already configured for CI environments.
+This project includes a GitHub Actions workflow that automatically runs the Playwright test suite on every push and pull request.
+
+The pipeline:
+- Installs dependencies
+- Runs tests headlessly
+- Uploads the Playwright HTML report as a build artifact
