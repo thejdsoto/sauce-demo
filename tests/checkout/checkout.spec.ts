@@ -30,6 +30,8 @@ test.describe('Checkout', () => {
     });
 
     test('Order total is calculated correctly', async ({ page }) => {
+        await cartPage.proceedToCheckout();
+        await checkoutPage.fillCustomerInfo('John', 'Doe', '12345');
         const itemTotal = await page.locator('.summary_subtotal_label').textContent();
         const tax = await page.locator('.summary_tax_label').textContent();
         const total = await page.locator('.summary_total_label').textContent();
